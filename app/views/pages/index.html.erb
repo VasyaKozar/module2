@@ -1,0 +1,14 @@
+<h1>Catalog</h1><%= link_to "Add new product", catalogs_new_path, :class => 'btn btn-outline-primary' %><br/>
+<div class="alert alert-light">
+<% if @products == []%>
+<h2>No procucts</h2>
+<%= link_to "Add new product", catalogs_new_path, :class => 'btn btn-outline-primary' %><br/>
+<% else %>
+<% @products.each do |p| %>
+<h4>User <b><%= p.user.userparam.firstname %></b> write:<br/></h4>
+<h2><b><%= p.title %></b><br/></h2>
+<h3><%= p.body %><br/></h3>
+<p><%= link_to "Read More", root_path(p.id), :class => 'btn btn-outline-primary' %></p>
+<% end %>
+<% end %>
+</div>
